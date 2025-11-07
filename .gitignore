@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Image files - ignore in root but allow in assets
+/*.jpg
+/*.jpeg
+/*.png
+/*.gif
+
+# Allow sample images in assets
+!assets/
+!assets/*.jpg
+!assets/*.jpeg
+!assets/*.png
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Environment variables
+.env
