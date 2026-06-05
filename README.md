@@ -1,91 +1,82 @@
-🎨 **Real-Time Skin Tone Analyzer Using Python and OpenCV**
+# Real-Time Skin Tone Analyser
 
-A real-time skin tone analyzer that helps users identify their skin tone and get personalized color recommendations.
-Using computer vision and color analysis, this tool provides instant feedback about which colors would complement your skin tone best.
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Computer%20Vision-Real--time-2ecc71?style=flat-square"/>
+</p>
 
-💡 **Inspiration**
+A real-time computer vision tool that detects skin tone from a live webcam feed and generates personalised colour palette recommendations — built with Python and OpenCV.
 
-This idea came while scrolling through color theory reels on Instagram — I was fascinated by how certain colors enhance or clash with different skin tones.
-So, I decided to bring that concept to life with Python — combining OpenCV, color theory, and machine learning to make a tool that analyzes your skin tone in real time and recommends your perfect color palette.
+---
 
-🚀 **Features**
+## Inspiration
 
-👁️ Real-time face detection using OpenCV
+While exploring colour theory, I was fascinated by how certain colours enhance or clash with different skin tones. I built this to combine that idea with computer vision — taking colour theory from an Instagram reel to a working, real-time Python application.
 
-🎨 Instant skin tone classification
+---
 
-👕 Personalized color recommendations based on your tone
+## How It Works
 
-🌈 Color palette visualization for complementary shades
+```
+Webcam Feed → Face Detection (Haar Cascade) → Skin Region Sampling
+                                                      ↓
+                                           RGB Analysis + Brightness Score
+                                                      ↓
+                                        Tone Classification + Colour Recommendations
+```
 
-📸 Sample output capture functionality
+1. **Face detection** — OpenCV Haar Cascade locates the face in each frame
+2. **Region sampling** — central 30–70% of the face sampled to avoid hair and edges
+3. **Colour analysis** — average RGB calculated; brightness score mapped to tone category
+4. **Classification** — Fair / Light / Medium / Tan / Dark
+5. **Recommendations** — 3 complementary colours + 2 colours to avoid, updated in real time
 
-💡 Smart color avoidance suggestions (which colors to skip)
+---
 
-**How It Works**
+## Features
 
-🎥 Face Detection
-- Uses OpenCV's Haar Cascade Classifier for reliable face detection
-- Processes webcam feed in real-time at 30 FPS
-- Draws a green rectangle around detected faces for visual feedback
+- Real-time face detection at 30 FPS
+- Skin tone classification across 5 brightness categories
+- Personalised colour palette (best matches + colours to avoid)
+- Live RGB value display and colour patch visualisation
+- Press `s` to save a snapshot with full analysis overlay
+- Works across varied lighting conditions
 
-🔍 Skin Analysis
-- Focuses on the central region of your face (30-70% of face width/height)
-- Avoids edges, hair, and accessories for accurate tone measurement
-- Samples multiple points to get an average skin tone
-- Displays a yellow rectangle showing the analyzed area
+---
 
-🎨 Color Processing
-- Converts BGR color space to RGB for accurate color representation
-- Calculates average RGB values from the sampled region
-- Shows your skin tone's RGB values for precise color matching
-- Displays a color patch showing your exact detected tone
+## Setup
 
-📊 Tone Classification
-- Analyzes brightness levels to determine skin tone category
-- Categories: Fair (200+), Light (150-200), Medium (100-150), Tan (50-100), Dark (0-50)
-- Updates classification in real-time as lighting changes
-- Ensures consistent results across different lighting conditions
-
-👕 Color Recommendations
-- Provides personalized color suggestions based on your tone
-- Shows 3 best colors that complement your skin tone
-- Suggests 2 colors to avoid that might clash
-- Updates recommendations instantly as lighting changes
-
-📸 Output Features
-- Press 's' to save a snapshot with all analysis details
-- Saves high-quality JPEG images in the assets folder
-- Perfect for before/after comparisons
-- Includes all measurements and recommendations in the saved image
-
-**Getting Started** 
-
-Prerequisites
-- Python 3.x
-- Webcam
-
-Installation
-1. Clone the repository:
 ```bash
+# Clone the repo
 git clone https://github.com/akansha0724/Skintone-Analysis.git
-```
+cd Skintone-Analysis
 
-2. Install required packages:
-```bash
-pip install -r req.txt
-```
+# Install dependencies
+pip install -r requirements.txt
 
-Usage
-1. Run the program:
-```bash
+# Run
 python colouranalysis.py
 ```
-2. Position your face in front of the camera
-3. Press 's' to save a sample output
-4. Press 'q' to quit
 
-Contributing
-Feel free to fork this project and submit pull requests. You can also open issues for bugs or feature suggestions.
+**Controls:** `s` — save snapshot &nbsp;|&nbsp; `q` — quit
 
-- Akansha
+---
+
+## Tech Stack
+
+- **OpenCV** — face detection and video processing
+- **Python** — colour space conversion, brightness analysis, recommendation logic
+- **Haar Cascade Classifier** — pre-trained frontal face detector
+
+---
+
+## Project Structure
+
+```
+├── colouranalysis.py                    # Main application
+├── undertonanalysis.py                  # Undertone analysis module
+├── haarcascade_frontalface_default.xml  # Face detection model
+├── assets/                              # Saved snapshots
+└── requirements.txt
+```
