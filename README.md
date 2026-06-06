@@ -10,6 +10,14 @@ A real-time computer vision tool that detects skin tone from a live webcam feed 
 
 ---
 
+## Demo
+
+![Skin Tone Analyser in action](demo.png)
+
+*Real-time detection — tone classified as Medium, RGB values displayed, complementary colours recommended instantly.*
+
+---
+
 ## Inspiration
 
 While exploring colour theory, I was fascinated by how certain colours enhance or clash with different skin tones. I built this to combine that idea with computer vision — taking colour theory from an Instagram reel to a working, real-time Python application.
